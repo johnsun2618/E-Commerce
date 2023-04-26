@@ -1,11 +1,9 @@
 package com.example.ECommerce.Repository;
 
-import com.example.ECommerce.Model.Customer;
+import com.example.ECommerce.Model.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer,Integer> {
-
-    Customer findByMobNo(String mobNo);
+public interface CartRepository extends JpaRepository<Cart,Integer> {
 }

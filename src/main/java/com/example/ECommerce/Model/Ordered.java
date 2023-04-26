@@ -1,10 +1,9 @@
 package com.example.ECommerce.Model;
 
+import com.example.ECommerce.Enum.ProductCategory;
+import com.example.ECommerce.Enum.ProductStatus;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.sql.Date;
