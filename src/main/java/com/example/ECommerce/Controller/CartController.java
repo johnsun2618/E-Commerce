@@ -1,7 +1,9 @@
 package com.example.ECommerce.Controller;
 
+import com.example.ECommerce.DTO.RequestDto.CheckoutCartRequestDto;
 import com.example.ECommerce.DTO.RequestDto.ItemRequestDto;
 import com.example.ECommerce.DTO.ResponseDto.CartResponseDto;
+import com.example.ECommerce.DTO.ResponseDto.OrderResponseDto;
 import com.example.ECommerce.Model.Item;
 import com.example.ECommerce.Service.CartService;
 import com.example.ECommerce.Service.ItemService;
@@ -34,5 +36,11 @@ public class CartController {
         catch (Exception e){
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping("/checkout")
+    public OrderResponseDto checkOutCart(@RequestBody CheckoutCartRequestDto checkoutCartRequestDto) throws Exception {
+
+        return cartService.checkOutCart(checkoutCartRequestDto);
     }
 }

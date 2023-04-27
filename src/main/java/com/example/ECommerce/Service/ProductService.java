@@ -1,9 +1,12 @@
 package com.example.ECommerce.Service;
 
 import com.example.ECommerce.Enum.ProductCategory;
+import com.example.ECommerce.Enum.ProductStatus;
 import com.example.ECommerce.DTO.RequestDto.ProductRequestDto;
 import com.example.ECommerce.DTO.ResponseDto.ProductResponseDto;
 import com.example.ECommerce.Exception.InvalidSellerException;
+import com.example.ECommerce.Model.Item;
+import com.example.ECommerce.Model.Ordered;
 import com.example.ECommerce.Model.Product;
 import com.example.ECommerce.Model.Seller;
 import com.example.ECommerce.Repository.ProductRepository;
@@ -66,5 +69,19 @@ public class ProductService {
         }
 
         return productResponseDtos;
+    }
+
+    public void decreaseProductQuantity(Item item) throws Exception {
+
+        Product product = item.getProduct();
+        int quantity = item.getRequiredQuantity();
+        int currentQuantity = product.getQuantity();
+        if(quantity>currentQuantity){
+            throw new Exception("Out of stock");
+        }
+        product.setQuantity(currentQuantity-quantity);
+        if(product.getQuantity()==0){
+            product.setProductStatus(ProductStatus.OUT_OF_STOCK);
+        }
     }
 }

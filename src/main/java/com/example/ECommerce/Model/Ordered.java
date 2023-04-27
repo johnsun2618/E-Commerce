@@ -1,10 +1,12 @@
 package com.example.ECommerce.Model;
 
-import com.example.ECommerce.Enum.ProductCategory;
-import com.example.ECommerce.Enum.ProductStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ public class Ordered {
 
     int totalValue;
 
+    @CreationTimestamp
     Date orderDate;
 
     String cardUsed;
