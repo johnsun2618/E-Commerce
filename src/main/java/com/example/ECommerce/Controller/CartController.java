@@ -3,6 +3,7 @@ package com.example.ECommerce.Controller;
 import com.example.ECommerce.DTO.RequestDto.CheckoutCartRequestDto;
 import com.example.ECommerce.DTO.RequestDto.ItemRequestDto;
 import com.example.ECommerce.DTO.ResponseDto.CartResponseDto;
+import com.example.ECommerce.DTO.ResponseDto.ItemResponseDto;
 import com.example.ECommerce.DTO.ResponseDto.OrderResponseDto;
 import com.example.ECommerce.Model.Item;
 import com.example.ECommerce.Service.CartService;
@@ -10,10 +11,9 @@ import com.example.ECommerce.Service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/cart")
@@ -43,4 +43,26 @@ public class CartController {
 
         return cartService.checkOutCart(checkoutCartRequestDto);
     }
+
+//    @GetMapping("/items")
+//    public ResponseEntity<List<ItemResponseDto>> viewCartItems(@RequestParam("customerId") Long customerId) {
+//        try {
+//            List<ItemResponseDto> cartItems = cartService.Item(customerId);
+//            return new ResponseEntity<>(cartItems, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
+
+    // remove from cart
+
+    // view all items in cart
+
+    // email sending
+
+    // my email - kunaljindal995@gmail.com
+
+
 }
+
